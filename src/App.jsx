@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home";
@@ -10,18 +9,15 @@ import Contact from "./pages/Contact";
 
 const App = () => {
   return (
-    <Router>
+    <div className="bg-[#140021] text-white scroll-smooth">
       <Navbar />
-      <div className="bg-[#140021] min-h-screen">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </div>
-    </Router>
+
+      <Home />
+      <About />
+      <Services />
+      <Projects />
+      <Contact />
+    </div>
   );
 };
 
