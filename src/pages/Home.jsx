@@ -16,7 +16,7 @@ const Home = () => {
 
       <div className="flex gap-4">
         <a href="#contact" className="bg-gradient-to-r from-purple-500 to-orange-400 px-6 py-3 rounded-full">Contact Me →</a>
-        <a href="/" className="border border-white/30 px-6 py-3 rounded-full">My Resume ↓</a>
+        <a href="/ajin-resume.pdf" download className="border border-white/30 px-6 py-3 rounded-full">My Resume ↓</a>
       </div>
     </section>
   );

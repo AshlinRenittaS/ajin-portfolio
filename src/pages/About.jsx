@@ -1,21 +1,21 @@
 import React from "react";
-import {
-  FaCode,
-  FaGraduationCap,
-  FaBriefcase,
-  FaChartLine,
-  FaProjectDiagram,
-  FaFileExcel,
-  FaDraftingCompass,
-} from "react-icons/fa";
-
 import aboutImg from "../assets/profile-image.png";
+import primaveraImg from "../assets/icons/primaveraP6.jpeg";
+import excelImg from "../assets/icons/microsoftExcel.jpeg";
+import powerbiImg from "../assets/icons/microsoftPowerBI.jpeg";
+import autocadImg from "../assets/icons/autoCAD.jpeg";
 
 const About = () => {
-  return (
-    <section id="about" className="text-white pt-28 pb-24 overflow-visible">
-      <div className="max-w-5xl mx-auto px-6">
+  const tools = [
+    { img: primaveraImg, name: "Primavera P6" },
+    { img: excelImg, name: "Excel" },
+    { img: powerbiImg, name: "Power BI" },
+    { img: autocadImg, name: "AutoCAD" },
+  ];
 
+  return (
+    <section id="about" className="text-white pt-28 pb-24">
+      <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-semibold">
             About me
@@ -23,7 +23,6 @@ const About = () => {
         </div>
 
         <div className="flex flex-col md:flex-row items-center gap-6">
-
           <div className="flex justify-center items-center mb-6 md:mb-0">
             <div className="relative w-[260px] h-[380px]">
 
@@ -33,13 +32,12 @@ const About = () => {
                 className="w-full h-full object-cover rounded-3xl"
               />
 
+              {/* Rotating Badge */}
               <div className="absolute bottom-[-25px] right-[-25px] w-[130px] h-[130px]">
-
                 <div className="relative w-full h-full rounded-full bg-white flex items-center justify-center shadow-lg">
 
                   <div className="absolute w-full h-full animate-[spin_18s_linear_infinite]">
                     <svg viewBox="0 0 200 200" className="w-full h-full">
-
                       <defs>
                         <path
                           id="circlePath"
@@ -63,14 +61,13 @@ const About = () => {
                           startOffset="50%"
                           textAnchor="middle"
                         >
-                          PLANNING  ENGINEER
+                          PLANNING ENGINEER
                         </textPath>
                       </text>
-
                     </svg>
                   </div>
 
-                  <div className="text-lg">👷‍♂️</div>
+                  <div className="text-lg">👨‍💻</div>
 
                 </div>
               </div>
@@ -78,6 +75,7 @@ const About = () => {
             </div>
           </div>
 
+          {/* Content */}
           <div className="max-w-lg lg:ml-20 md:ml-10 text-center md:text-left">
 
             <p className="text-gray-400 mb-10 leading-relaxed text-[14px]">
@@ -88,26 +86,24 @@ const About = () => {
               delivered on time.
             </p>
 
+            {/* Cards */}
             <div className="grid sm:grid-cols-3 gap-4 mb-10">
 
-              <div className="group border border-white/10 rounded-xl p-5 transition-all duration-300 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_18px_rgba(168,85,247,0.3)]">
-                <FaCode className="mb-3 text-gray-300 group-hover:text-purple-400" />
+              <div className="border border-white/10 rounded-xl p-5 hover:border-purple-500 hover:-translate-y-2 transition-all">
                 <h3 className="text-sm font-medium mb-1">Tools</h3>
                 <p className="text-xs text-gray-400">
                   Primavera P6, MS Project, Excel
                 </p>
               </div>
 
-              <div className="group border border-white/10 rounded-xl p-5 transition-all duration-300 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_18px_rgba(168,85,247,0.3)]">
-                <FaGraduationCap className="mb-3 text-gray-300 group-hover:text-purple-400" />
+              <div className="border border-white/10 rounded-xl p-5 hover:border-purple-500 hover:-translate-y-2 transition-all">
                 <h3 className="text-sm font-medium mb-1">Education</h3>
                 <p className="text-xs text-gray-400">
                   M.E Civil Engineering
                 </p>
               </div>
 
-              <div className="group border border-white/10 rounded-xl p-5 transition-all duration-300 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_18px_rgba(168,85,247,0.3)]">
-                <FaBriefcase className="mb-3 text-gray-300 group-hover:text-purple-400" />
+              <div className="border border-white/10 rounded-xl p-5 hover:border-purple-500 hover:-translate-y-2 transition-all">
                 <h3 className="text-sm font-medium mb-1">Projects</h3>
                 <p className="text-xs text-gray-400">
                   EPC & Infrastructure Projects
@@ -115,25 +111,22 @@ const About = () => {
               </div>
 
             </div>
-
+            
             <div>
               <p className="text-gray-400 mb-4 text-sm">Tools I use</p>
 
-              <div className="flex gap-3 flex-wrap justify-center">
-                {[ 
-                  { icon: <FaProjectDiagram />, color: "text-orange-400" },
-                  { icon: <FaProjectDiagram />, color: "text-green-500" },
-                  { icon: <FaFileExcel />, color: "text-green-600" },
-                  { icon: <FaChartLine />, color: "text-yellow-400" },
-                  { icon: <FaDraftingCompass />, color: "text-red-500" },
-                ].map((tool, i) => (
+              <div className="flex gap-3 flex-wrap justify-center md:justify-start">
+                {tools.map((tool, i) => (
                   <div
                     key={i}
-                    className="w-10 h-10 flex items-center justify-center border border-white/10 rounded-lg transition-all duration-300 hover:border-purple-500 hover:-translate-y-1 hover:shadow-[0_0_10px_rgba(168,85,247,0.4)]"
+                    title={tool.name}
+                    className="w-12 h-12 flex items-center justify-center border border-white/10 rounded-lg p-2 transition-all duration-300 hover:border-purple-500 hover:-translate-y-1 hover:shadow-[0_0_10px_rgba(168,85,247,0.4)]"
                   >
-                    <span className={`${tool.color} text-lg`}>
-                      {tool.icon}
-                    </span>
+                    <img
+                      src={tool.img}
+                      alt={tool.name}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                 ))}
               </div>
