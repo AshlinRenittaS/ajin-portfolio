@@ -25,7 +25,7 @@ const Navbar = () => {
     <nav className="w-full fixed top-0 left-0 z-50 bg-[#140021]/90 backdrop-blur-md text-white">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-        <h1 className="text-xl font-semibold">
+        <h1 className="text-3xl font-semibold">
           Ajin<span className="text-purple-500">.</span>
         </h1>
 

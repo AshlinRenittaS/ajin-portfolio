@@ -36,7 +36,7 @@ const Services = () => {
       <div className="text-center mb-16">
         <p className="text-sm text-gray-400">What I offer</p>
         <h2 className="text-4xl md:text-5xl font-semibold mt-2">
-          My Services
+          My Roles
         </h2>
       </div>
 

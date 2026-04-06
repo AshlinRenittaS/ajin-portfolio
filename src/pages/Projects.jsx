@@ -73,7 +73,7 @@ const Projects = () => {
       {/* Heading */}
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-semibold mt-2">
-          My latest work
+          My Projects
         </h2>
         <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-sm">
           Explore a collection of projects showcasing my experience in planning and execution.
