@@ -1,6 +1,6 @@
 import React from "react";
 import linkedin from "../assets/images/linkedin.webp";
-import twitter from "../assets/images/Twitter.png";
+import twitter from "../assets/images/twitterx.png";
 
 const Footer = () => {
   return (
