@@ -1,8 +1,10 @@
 import React from "react";
+import linkedin from "../assets/images/linkedin.webp";
+import twitter from "../assets/images/Twitter.png";
 
 const Footer = () => {
   return (
-    <footer className="text-white px-4 ">
+    <footer className="px-4 text-black dark:text-white">
       
       <div className="max-w-5xl mx-auto text-center">
         
@@ -13,7 +15,7 @@ const Footer = () => {
 
         {/* Email */}
         <p className="mt-4 flex items-center justify-center gap-2 opacity-80">
-          ✉ ajinpv31@gmail.com
+          ✉️ ajinpv31@gmail.com
         </p>
 
         {/* Divider */}
@@ -23,8 +25,25 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-center items-center text-sm opacity-80">
 
           <div className="flex gap-6 pb-5">
-            <a href="https://www.linkedin.com/in/ajinpv31/" className="hover:text-purple-400">LinkedIn</a>
-            <a href="#" className="hover:text-purple-400">Twitter</a>
+
+            {/* LinkedIn */}
+            <a
+              href="https://www.linkedin.com/in/ajinpv31/"
+              className="flex items-center gap-2 hover:text-purple-400"
+            >
+              <img src={linkedin} alt="linkedin" className="w-5 h-5" />
+              LinkedIn
+            </a>
+
+            {/* Twitter */}
+            <a
+              href="https://x.com/aJinpv31"
+              className="flex items-center gap-2 hover:text-purple-400"
+            >
+              <img src={twitter} alt="twitter" className="w-5 h-5" />
+              Twitter
+            </a>
+
           </div>
 
         </div>

@@ -68,14 +68,14 @@ const Projects = () => {
     : projectsData.slice(0, 3);
 
   return (
-    <section id="projects" className="bg-[#14001f] text-white py-24 px-6 md:px-20">
+    <section id="projects" className="py-24 px-6 md:px-20 text-black dark:text-white">
       
       {/* Heading */}
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-semibold mt-2">
           My Projects
         </h2>
-        <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-sm">
+        <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto text-sm">
           Explore a collection of projects showcasing my experience in planning and execution.
         </p>
       </div>
@@ -121,7 +121,7 @@ const Projects = () => {
       <div className="text-center mt-12">
         <button
           onClick={() => setShowAll(!showAll)}
-          className="border border-white/20 px-6 py-2 rounded-full hover:border-purple-500 hover:text-purple-400 transition"
+          className="border border-black/20 dark:border-white/20 px-6 py-2 rounded-full hover:border-purple-500 hover:text-purple-400 transition"
         >
           {showAll ? "Show less ←" : "Show more →"}
         </button>
@@ -134,24 +134,24 @@ const Projects = () => {
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="bg-[#1c002b] rounded-xl p-8 max-w-lg w-full"
+            className="bg-white dark:bg-[#1c002b] text-black dark:text-white rounded-xl p-8 max-w-lg w-full"
             onClick={(e) => e.stopPropagation()}
           >
             <h2 className="text-2xl font-semibold mb-2">
               {selectedProject.title}
             </h2>
 
-            <p className="text-purple-400 mb-2">
+            <p className="text-purple-500 dark:text-purple-400 mb-2">
               {selectedProject.subtitle}
             </p>
 
-            <p className="text-sm text-gray-400 mb-4">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
               {selectedProject.location}
             </p>
 
             <div className="mb-4">
               <h4 className="font-semibold mb-1">Scope:</h4>
-              <p className="text-gray-300 text-sm">
+              <p className="text-gray-700 dark:text-gray-300 text-sm">
                 {selectedProject.scope}
               </p>
             </div>
@@ -160,17 +160,18 @@ const Projects = () => {
               <h4 className="font-semibold mb-1">
                 Key Achievement:
               </h4>
-              <p className="text-gray-300 text-sm">
+              <p className="text-gray-700 dark:text-gray-300 text-sm">
                 {selectedProject.achievement}
               </p>
             </div>
-
-            <button
-              onClick={() => setSelectedProject(null)}
-              className="mt-6 bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-lg"
-            >
-              Close
-            </button>
+            <div className="flex justify-center">
+  <button
+    onClick={() => setSelectedProject(null)}
+    className="mt-6 bg-pink-500 hover:bg-pink-600 px-6 py-2 rounded-lg text-white"
+  >
+    Close
+  </button>
+</div>
           </div>
         </div>
       )}

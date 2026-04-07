@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home";
@@ -9,8 +9,18 @@ import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 
 const App = () => {
+
+  // Default theme (dark)
+  useEffect(() => {
+    document.documentElement.classList.add("dark");
+  }, []);
+
   return (
-    <div className="bg-[#140021] text-white scroll-smooth">
+    <div
+      className="bg-white text-black 
+      dark:bg-[#140021] dark:text-white 
+      scroll-smooth transition-colors duration-300"
+    >
       <Navbar />
 
       <Home />

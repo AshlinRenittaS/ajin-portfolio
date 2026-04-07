@@ -1,8 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Contact = () => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState({});
+
+  // Handle input change
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  // Validation
+  const validate = () => {
+    let newErrors = {};
+
+    if (!form.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    if (!form.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(form.email)) {
+      newErrors.email = "Enter valid email";
+    }
+
+    if (!form.message.trim()) {
+      newErrors.message = "Message is required";
+    }
+
+    return newErrors;
+  };
+
+  // Submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const validationErrors = validate();
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length === 0) {
+      alert("Form submitted successfully ✅");
+      setForm({ name: "", email: "", message: "" });
+    }
+  };
+
   return (
-    <section id="contact" className="min-h-screen flex items-center justify-center text-white px-4">
+    <section
+      id="contact"
+      className="min-h-screen flex items-center justify-center px-4 text-black dark:text-white"
+    >
       <div className="max-w-3xl w-full text-center">
         
         <p className="text-sm opacity-70">Connect with me</p>
@@ -16,34 +66,60 @@ const Contact = () => {
           feedback, please use the form below.
         </p>
 
-        <form className="flex flex-col gap-5">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           
           {/* Name & Email */}
           <div className="flex flex-col md:flex-row gap-5">
-            <input
-              type="text"
-              placeholder="Enter your name"
-              className="w-full bg-transparent border border-purple-500/40 rounded-lg px-4 py-3 outline-none focus:border-purple-400"
-            />
+            
+            <div className="w-full text-left">
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="Enter your name"
+                className="w-full bg-transparent border border-purple-500/40 rounded-lg px-4 py-3 outline-none focus:border-purple-400"
+              />
+              {errors.name && (
+                <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+              )}
+            </div>
 
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full bg-transparent border border-purple-500/40 rounded-lg px-4 py-3 outline-none focus:border-purple-400"
-            />
+            <div className="w-full text-left">
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+                className="w-full bg-transparent border border-purple-500/40 rounded-lg px-4 py-3 outline-none focus:border-purple-400"
+              />
+              {errors.email && (
+                <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+              )}
+            </div>
+
           </div>
 
           {/* Message */}
-          <textarea
-            placeholder="Enter your message"
-            rows="6"
-            className="w-full bg-transparent border border-purple-500/40 rounded-lg px-4 py-3 outline-none resize-none focus:border-purple-400"
-          ></textarea>
+          <div className="text-left">
+            <textarea
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              placeholder="Enter your message"
+              rows="6"
+              className="w-full bg-transparent border border-purple-500/40 rounded-lg px-4 py-3 outline-none resize-none focus:border-purple-400"
+            ></textarea>
+            {errors.message && (
+              <p className="text-red-500 text-xs mt-1">{errors.message}</p>
+            )}
+          </div>
 
           {/* Button */}
           <button
             type="submit"
-            className="mx-auto mt-4 px-8 py-3 rounded-full border border-purple-500/40 hover:bg-purple-600 transition-all duration-300"
+            className="mx-auto mt-4 px-8 py-3 rounded-full border border-purple-500/40 hover:bg-purple-400 hover:text-white transition-all duration-300"
           >
             Submit now →
           </button>

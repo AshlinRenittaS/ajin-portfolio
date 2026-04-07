@@ -14,7 +14,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="text-white pt-28 pb-24">
+    <section id="about" className="pt-28 pb-24 text-black dark:text-white">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-semibold">
@@ -51,7 +51,7 @@ const About = () => {
                       </defs>
 
                       <text
-                        fill="#444"
+                        className="fill-black dark:fill-[#444]"
                         fontSize="20"
                         fontWeight="600"
                         letterSpacing="7"
@@ -78,7 +78,7 @@ const About = () => {
           {/* Content */}
           <div className="max-w-lg lg:ml-20 md:ml-10 text-center md:text-left">
 
-            <p className="text-gray-400 mb-10 leading-relaxed text-[14px]">
+            <p className="mb-10 leading-relaxed text-[14px] text-gray-600 dark:text-gray-400">
               I am a Planning Engineer with strong experience in EPC and
               infrastructure projects. Skilled in Primavera P6, scheduling,
               cost control, and project monitoring. I focus on optimizing
@@ -89,23 +89,23 @@ const About = () => {
             {/* Cards */}
             <div className="grid sm:grid-cols-3 gap-4 mb-10">
 
-              <div className="border border-white/10 rounded-xl p-5 hover:border-purple-500 hover:-translate-y-2 transition-all">
+              <div className="border border-black/10 dark:border-white/10 rounded-xl p-5 hover:border-purple-500 hover:-translate-y-2 transition-all">
                 <h3 className="text-sm font-medium mb-1">Tools</h3>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-gray-600 dark:text-gray-400">
                   Primavera P6, MS Project, Excel
                 </p>
               </div>
 
-              <div className="border border-white/10 rounded-xl p-5 hover:border-purple-500 hover:-translate-y-2 transition-all">
+              <div className="border border-black/10 dark:border-white/10 rounded-xl p-5 hover:border-purple-500 hover:-translate-y-2 transition-all">
                 <h3 className="text-sm font-medium mb-1">Education</h3>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-gray-600 dark:text-gray-400">
                   M.E Civil Engineering
                 </p>
               </div>
 
-              <div className="border border-white/10 rounded-xl p-5 hover:border-purple-500 hover:-translate-y-2 transition-all">
+              <div className="border border-black/10 dark:border-white/10 rounded-xl p-5 hover:border-purple-500 hover:-translate-y-2 transition-all">
                 <h3 className="text-sm font-medium mb-1">Projects</h3>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-gray-600 dark:text-gray-400">
                   EPC & Infrastructure Projects
                 </p>
               </div>
@@ -113,14 +113,20 @@ const About = () => {
             </div>
             
             <div>
-              <p className="text-gray-400 mb-4 text-sm">Tools I use</p>
+              <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">
+                Tools I use
+              </p>
 
               <div className="flex gap-3 flex-wrap justify-center md:justify-start">
                 {tools.map((tool, i) => (
                   <div
                     key={i}
                     title={tool.name}
-                    className="w-12 h-12 flex items-center justify-center border border-white/10 rounded-lg p-2 transition-all duration-300 hover:border-purple-500 hover:-translate-y-1 hover:shadow-[0_0_10px_rgba(168,85,247,0.4)]"
+                    className="w-12 h-12 flex items-center justify-center 
+                    border border-black/10 dark:border-white/10 
+                    rounded-lg p-2 transition-all duration-300 
+                    hover:border-purple-500 hover:-translate-y-1 
+                    hover:shadow-[0_0_10px_rgba(168,85,247,0.4)]"
                   >
                     <img
                       src={tool.img}
