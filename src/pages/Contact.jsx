@@ -86,8 +86,12 @@ const handleSubmit = async (e) => {
 
   if (Object.keys(validationErrors).length === 0) {
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/mail/send",
+      // const res = await axios.post(
+      //   "http://localhost:5000/api/mail/send",
+      //   form
+      // );
+       const res = await axios.post(
+        "https://ajin-portfolio-backend.onrender.com",
         form
       );
 
