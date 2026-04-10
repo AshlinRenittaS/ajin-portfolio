@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -36,17 +38,80 @@ const Contact = () => {
   };
 
   // Submit
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
-    const validationErrors = validate();
-    setErrors(validationErrors);
+  //   const validationErrors = validate();
+  //   setErrors(validationErrors);
 
-    if (Object.keys(validationErrors).length === 0) {
-      alert("Form submitted successfully ✅");
-      setForm({ name: "", email: "", message: "" });
+  //   if (Object.keys(validationErrors).length === 0) {
+  //     alert("Form submitted successfully ✅");
+  //     setForm({ name: "", email: "", message: "" });
+  //   }
+  // };
+
+  
+
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+
+//   const validationErrors = validate();
+//   setErrors(validationErrors);
+
+//   if (Object.keys(validationErrors).length === 0) {
+//     try {
+//       const res = await axios.post(
+//         "http://localhost:5000/api/mail/send",
+//         form
+//       );
+
+//       if (res.data.success) {
+//         alert("Message sent successfully ✅");
+//         setForm({ name: "", email: "", message: "" });
+//       } else {
+//         alert("Failed to send message ❌");
+//       }
+//     } catch (error) {
+//       console.error("Axios error 👉", error);
+//       alert("Server error ❌");
+//     }
+//   }
+// };
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const validationErrors = validate();
+  setErrors(validationErrors);
+
+  if (Object.keys(validationErrors).length === 0) {
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/api/mail/send",
+        form
+      );
+
+      if (res.data.success) {
+        toast.success("Message sent successfully ✅");
+
+        // Reset form
+        setForm({
+          name: "",
+          email: "",
+          message: "",
+        });
+
+        // Optional: clear errors too
+        setErrors({});
+      } else {
+        toast.error("Failed to send message ❌");
+      }
+    } catch (error) {
+      console.error("Axios error 👉", error);
+      toast.error("Server error ❌");
     }
-  };
+  }
+};
 
   return (
     <section

@@ -8,6 +8,9 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
 
   // Default theme (dark)
@@ -29,6 +32,12 @@ const App = () => {
       <Projects />
       <Contact />
       <Footer />
+
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        theme="dark"   // matches your dark UI 🔥
+      />
     </div>
   );
 };

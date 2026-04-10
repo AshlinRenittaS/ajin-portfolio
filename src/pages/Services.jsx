@@ -38,7 +38,7 @@ const Services = () => {
       {/* Heading */}
       <div className="text-center mb-16">
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          What I offer
+          What I do
         </p>
         <h2 className="text-4xl md:text-5xl font-semibold mt-2">
           My Roles
