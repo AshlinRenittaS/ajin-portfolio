@@ -43,7 +43,7 @@ const Navbar = () => {
         border border-black/20 dark:border-white/20 rounded-full">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About me</a></li>
-          <li><a href="#services">Services</a></li>
+          <li><a href="#services">Roles</a></li>
           <li><a href="#projects">My Work</a></li>
           <li><a href="#contact">Contact me</a></li>
         </ul>
@@ -107,7 +107,7 @@ const Navbar = () => {
             About me
           </button>
           <button onClick={() => handleNavClick("services")} className="hover:text-purple-400">
-            Services
+            Roles
           </button>
           <button onClick={() => handleNavClick("projects")} className="hover:text-purple-400">
             My Work
