@@ -10,6 +10,7 @@ const Contact = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   // Handle input change
   const handleChange = (e) => {
@@ -37,21 +38,6 @@ const Contact = () => {
     return newErrors;
   };
 
-  // Submit
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   const validationErrors = validate();
-  //   setErrors(validationErrors);
-
-  //   if (Object.keys(validationErrors).length === 0) {
-  //     alert("Form submitted successfully ✅");
-  //     setForm({ name: "", email: "", message: "" });
-  //   }
-  // };
-
-  
-
 // const handleSubmit = async (e) => {
 //   e.preventDefault();
 
@@ -60,20 +46,29 @@ const Contact = () => {
 
 //   if (Object.keys(validationErrors).length === 0) {
 //     try {
-//       const res = await axios.post(
-//         "http://localhost:5000/api/mail/send",
+//        const res = await axios.post(
+//         "https://ajin-portfolio-backend.onrender.com/api/mail/send",
 //         form
 //       );
 
 //       if (res.data.success) {
-//         alert("Message sent successfully ✅");
-//         setForm({ name: "", email: "", message: "" });
+//         toast.success("Message sent successfully ✅");
+
+//         // Reset form
+//         setForm({
+//           name: "",
+//           email: "",
+//           message: "",
+//         });
+
+//         // Optional: clear errors too
+//         setErrors({});
 //       } else {
-//         alert("Failed to send message ❌");
+//         toast.error("Failed to send message ❌");
 //       }
 //     } catch (error) {
 //       console.error("Axios error 👉", error);
-//       alert("Server error ❌");
+//       toast.error("Server error ❌");
 //     }
 //   }
 // };
@@ -86,26 +81,22 @@ const handleSubmit = async (e) => {
 
   if (Object.keys(validationErrors).length === 0) {
     try {
-      // const res = await axios.post(
-      //   "http://localhost:5000/api/mail/send",
-      //   form
-      // );
-       const res = await axios.post(
-        "https://ajin-portfolio-backend.onrender.com",
+      setLoading(true); // 🔥 START LOADING
+
+      const res = await axios.post(
+        "https://ajin-portfolio-backend.onrender.com/api/mail/send",
         form
       );
 
       if (res.data.success) {
         toast.success("Message sent successfully ✅");
 
-        // Reset form
         setForm({
           name: "",
           email: "",
           message: "",
         });
 
-        // Optional: clear errors too
         setErrors({});
       } else {
         toast.error("Failed to send message ❌");
@@ -113,6 +104,8 @@ const handleSubmit = async (e) => {
     } catch (error) {
       console.error("Axios error 👉", error);
       toast.error("Server error ❌");
+    } finally {
+      setLoading(false); // 🔥 STOP LOADING (IMPORTANT)
     }
   }
 };
@@ -186,12 +179,28 @@ const handleSubmit = async (e) => {
           </div>
 
           {/* Button */}
-          <button
+          {/* <button
             type="submit"
             className="mx-auto mt-4 px-8 py-3 rounded-full border border-purple-500/40 hover:bg-purple-400 hover:text-white transition-all duration-300"
           >
             Submit now →
-          </button>
+          </button> */}
+          <button
+  type="submit"
+  disabled={loading}
+  className={`mx-auto mt-4 px-8 py-3 rounded-full border border-purple-500/40 
+  transition-all duration-300 flex items-center justify-center gap-2
+  ${loading ? "opacity-70 cursor-not-allowed" : "hover:bg-purple-400 hover:text-white"}`}
+>
+  {loading ? (
+    <>
+      <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+      Sending...
+    </>
+  ) : (
+    "Submit now →"
+  )}
+</button>
 
         </form>
       </div>

@@ -9,6 +9,9 @@ const Navbar = () => {
     document.documentElement.classList.add("dark");
   }, []);
 
+  const navLink =
+  "inline-block transition-all duration-300 hover:-translate-y-1 hover:text-purple-500";
+
   const toggleTheme = () => {
     if (dark) {
       document.documentElement.classList.remove("dark");
@@ -39,14 +42,16 @@ const Navbar = () => {
         </h1>
 
         {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-8 px-8 py-4 
-        border border-black/20 dark:border-white/20 rounded-full">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About me</a></li>
-          <li><a href="#services">Roles</a></li>
-          <li><a href="#projects">My Work</a></li>
-          <li><a href="#contact">Contact me</a></li>
-        </ul>
+<ul className="hidden md:flex items-center gap-8 px-8 py-4 
+border border-black/20 dark:border-white/20 rounded-full">
+
+  <li><a href="#home" className={navLink}>Home</a></li>
+  <li><a href="#about" className={navLink}>About me</a></li>
+  <li><a href="#services" className={navLink}>Roles</a></li>
+  <li><a href="#projects" className={navLink}>My Work</a></li>
+  <li><a href="#contact" className={navLink}>Contact me</a></li>
+
+</ul>
 
         <div className="hidden md:flex items-center gap-4">
           <button
@@ -110,7 +115,7 @@ const Navbar = () => {
             Roles
           </button>
           <button onClick={() => handleNavClick("projects")} className="hover:text-purple-400">
-            My Work
+            My Projects
           </button>
           <button onClick={() => handleNavClick("contact")} className="hover:text-purple-400">
             Contact me

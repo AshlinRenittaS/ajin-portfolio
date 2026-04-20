@@ -1,5 +1,5 @@
 import React from "react";
-import aboutImg from "../assets/profile-image.png";
+import aboutImg from "../assets/about-pic.jpeg";
 import primaveraImg from "../assets/icons/primaveraP6.jpeg";
 import excelImg from "../assets/icons/microsoftExcel.jpeg";
 import powerbiImg from "../assets/icons/microsoftPowerBI.jpeg";

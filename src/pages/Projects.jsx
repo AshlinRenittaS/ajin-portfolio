@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import sobhaDubai from "../assets/images/sobhaDubai.jpg";
+import sobhaDubai from "../assets/images/Sobha.webp";
 import totalEnv from "../assets/images/totalEnv.jpg";
 import brigade from "../assets/images/brigade.jpg";
 import sobhaBlr from "../assets/images/SobhaBangalore.jpg";
@@ -9,7 +9,7 @@ import lnt from "../assets/images/LtConstruction.webp";
 const projectsData = [
   {
     title: "Sobha Construction",
-    subtitle: "High-End Residential & Commercial",
+    subtitle: "Luxury Villas, Residential & Commercial",
     location: "Dubai, UAE (2025 – Present)",
     img: sobhaDubai,
     scope:
@@ -19,13 +19,13 @@ const projectsData = [
   },
   {
     title: "Total Environment",
-    subtitle: "Over the Rainbow & Suntikoppa",
+    subtitle: "Over the Rainbow",
     location: "Bangalore, India (2024 – 2025)",
     img: totalEnv,
     scope:
-      "Managed planning for villa developments across 30 and 75 acres and projects in Goa.",
+      "It is an exclusive, low-density luxury villa project near Nandi Hills, North Bangalore, featuring 33 customizable, earth-sheltered 3BHK homes (approx. 3,000 sq ft) on 6,000+ sq ft plots. Designed for green living, these homes offer private garden decks, green roofs, and scenic views, with prices starting from ₹7.14 crore.",
     achievement:
-      "Established CPMO workflows and sprint dashboards for tracking.",
+      "Project launch, Baseline approval & Cost management",
   },
   {
     title: "Brigade Enterprises",
@@ -150,7 +150,7 @@ const Projects = () => {
             </p>
 
             <div className="mb-4">
-              <h4 className="font-semibold mb-1">Scope:</h4>
+              <h4 className="font-semibold mb-1">Project Details:</h4>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
                 {selectedProject.scope}
               </p>
