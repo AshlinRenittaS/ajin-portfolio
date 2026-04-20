@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import sobhaDubai from "../assets/images/Sobha.webp";
+import sobhaDubai from "../assets/images/sobha.webp";
 import totalEnv from "../assets/images/totalEnv.jpg";
 import brigade from "../assets/images/brigade.jpg";
 import sobhaBlr from "../assets/images/SobhaBangalore.jpg";
