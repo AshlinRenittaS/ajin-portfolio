@@ -35,7 +35,7 @@ const Home = () => {
         </a>
 
         <a
-          href="/ajin-resume.pdf"
+          href="/Ajin - Planning Engineer.pdf"
           download
           className="border border-black/20 dark:border-white/30 px-6 py-3 rounded-full"
         >
